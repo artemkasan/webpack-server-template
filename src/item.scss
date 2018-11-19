@@ -1,0 +1,69 @@
+$background-color-item-container: #99bce9;
+$expand-time: 150ms;
+
+
+.item-container {
+	margin: 1px;
+	padding: 0.3em;
+	border: 1px solid darken($background-color-item-container, 10);
+	border-radius: 2px;
+	display: flex;
+	flex-direction: column;
+
+	.title {
+		min-height: 1em;
+	}
+
+	.body {
+		transition: height $expand-time linear 0ms,
+			opacity $expand-time cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+		opacity: 0;
+		overflow: hidden;
+	}
+
+	.description {
+		background-color: yellow;
+		overflow: hidden;
+	}
+
+	&.selected {
+		background-color: darken($background-color-item-container, 3);
+
+		&:first {
+			margin-top: 0.3em;
+		}
+	}
+
+	&:hover {
+		background-color: lighten($background-color-item-container, 2);
+		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	}
+
+	&.expanded {
+		background-color: darken($background-color-item-container, 6);
+		transition: height $expand-time linear 30ms,
+		opacity $expand-time cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+		.body {
+			opacity: 1;
+		}
+	}
+
+	&.unexpanding {
+		.body {
+			overflow: hidden;
+			transition: height $expand-time linear 30ms,
+			opacity $expand-time cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+		}
+	}
+
+	&.expanding {
+		.body {
+			overflow: hidden;
+		}
+	}
+
+	.buttonsContainer {
+		display: flex;
+		flex-direction: row;
+	}
+}

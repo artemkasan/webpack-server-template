@@ -1,0 +1,17 @@
+.list-container {
+	height: 300px;
+	overflow-y: auto;
+	position: relative;
+}
+
+.items-area {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+}
+
+.scroll-shift {
+	height: 1px;
+	width: 1px;
+	position: absolute;
+}
